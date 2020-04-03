@@ -18,6 +18,16 @@
 
 {% block content %}
 
+<style>
+div.container{
+  max-width: 800px;
+  margin: 0 auto;
+  column-width: 14em;
+  column-gap: 2em;
+  column-rule: 1px solid #ccc;
+}
+</style>
+
 {% with messages = get_flashed_messages() %}
   {% for message in messages %}
     <p>{{ message }}<p>
@@ -29,7 +39,7 @@
   <i class="glyphicon glyphicon-plus"></i>
   Add movies
 </a>
-
+<div class="container">
 {% for movies in moviess %}
 <div class="media">
   <a href="/moviess/{{movies.id}}">
@@ -50,6 +60,7 @@
 {% else %}
 <p>No moviess found</p>
 {% endfor %}
+</div>
 
 {% if last_title %}
 <nav>
