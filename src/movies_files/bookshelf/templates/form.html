@@ -28,18 +28,28 @@
   </div>
 
   <div class="form-group">
-    <label for="author">Author</label>
-    <input type="text" name="author" id="author" value="{{movies.author}}" class="form-control"/>
-  </div>
-
-  <div class="form-group">
-    <label for="publishedDate">Date Published</label>
-    <input type="text" name="publishedDate" id="publishedDate" value="{{movies.publishedDate}}" class="form-control"/>
+    <label for="releaseDate">Date Released</label>
+    <input type="date" name="releaseDate" id="releaseDate" value="{{movies.releaseDate}}" class="form-control"/>
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
     <textarea name="description" id="description" class="form-control">{{movies.description}}</textarea>
+  </div>
+  
+    <div class="form-group">
+    <label for="genre">Genre</label>
+    <textarea name="genre" id="genre" class="form-control">{{movies.genre}}</textarea>
+  </div>
+  
+    <div class="form-group">
+    <label for="director">Director</label>
+    <textarea name="director" id="director" class="form-control">{{movies.director}}</textarea>
+  </div>
+  
+    <div class="form-group">
+    <label for="rating">IMDb Rating</label>
+    <input type="number" name="rating" id="rating" value="{{movies.rating}}" class="form-control"/>
   </div>
 
   <div class="form-group">
