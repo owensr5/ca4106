@@ -24,7 +24,7 @@
   {% endfor %}
 {% endwith %}
 
-<h3>moviess</h3>
+<h3>movies</h3>
 <a href="/moviess/add" class="btn btn-success btn-sm">
   <i class="glyphicon glyphicon-plus"></i>
   Add movies
@@ -42,7 +42,8 @@
     </div>
     <div class="media-body">
       <h4>{{movies.title}}</h4>
-      <p>{{movies.author}}</p>
+      <p>{{movies.rating}}</p>
+      <p>{{movies.genre}}</p>
     </div>
   </a>
 </div>
