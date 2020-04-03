@@ -44,9 +44,9 @@
   <div class="media-body">
     <h4 class="movies-title">
       {{movies.title}}
-      <small>{{movies.publishedDate}}</small>
+      <small>{{movies.genre}}</small>
     </h4>
-    <h5 class="movies-author">By {{movies.author|default('Unknown', True)}}</h5>
+    <h5 class="movies-author">By {{movies.director|default('Unknown', True)}}</h5>
     <p class="movies-description">{{movies.description}}</p>
   </div>
 </div>
