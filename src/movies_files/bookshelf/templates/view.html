@@ -18,16 +18,16 @@
 
 {% block content %}
 
-<h3>movies</h3>
+<h3>{{movies.title}}</h3>
 
 <div class="btn-group">
   <a href="/moviess/{{movies.id}}/edit" class="btn btn-primary btn-sm">
     <i class="glyphicon glyphicon-edit"></i>
-    Edit movies
+    Edit Movie
   </a>
   <a href="/moviess/{{movies.id}}/delete" class="btn btn-danger btn-sm">
     <i class="glyphicon glyphicon-trash"></i>
-    Delete movies
+    Delete Movie
   </a>
 </div>
 
@@ -47,9 +47,9 @@
       <small>{{movies.genre}}</small>
     </h4>
     <h5 class="movies-author">Directed by {{movies.director|default('Unknown', True)}}</h5>
-    <p class="movies-rating">IMDb Rating {{movies.rating}}</p>
-    <p class="movies-releasedate">Released {{movies.releaseDate}}</p>
-    <p class="movies-description">{{movies.description}}</p>
+    <p class="movies-rating">IMDb Rating: {{movies.rating}}</p>
+    <p class="movies-releasedate">Released Date: {{movies.releaseDate}}</p>
+    <p class="movies-description">Plot: <br> {{movies.description}}</p>
   </div>
 </div>
 

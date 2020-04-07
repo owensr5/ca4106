@@ -18,15 +18,40 @@
 
 {% block content %}
 
-<!--<style>
-div.container{
-  max-width: 800px;
-  margin: 0 auto;
-  column-width: 14em;
-  column-gap: 2em;
-  column-rule: 1px solid #ccc;
+<style>
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fafafa;
+  padding: 10px;
+  color: #555;
 }
-</style>-->
+
+.column {
+  flex: 33.3%;
+  max-width: 34%;
+  background-color: #fff;
+  padding: 20px 0;
+  font-size: 20px;
+  border-style: solid;
+  border-color: #fafafa;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
 
 {% with messages = get_flashed_messages() %}
   {% for message in messages %}
@@ -34,33 +59,32 @@ div.container{
   {% endfor %}
 {% endwith %}
 
-<h3>movies</h3>
+<h3>Movies</h3>
 <a href="/moviess/add" class="btn btn-success btn-sm">
   <i class="glyphicon glyphicon-plus"></i>
-  Add movies
+  Add Movies
 </a>
-<!--<div class="container">-->
-{% for movies in moviess %}
-<div class="media">
-  <a href="/moviess/{{movies.id}}">
-    <div class="media-left">
-      {% if movies.imageUrl %}
-        <img src="{{movies.imageUrl}}">
-      {% else %}
-        <img src="http://placekitten.com/g/128/192">
-      {% endif %}
+<br>
+<div class="row">
+    {% for movies in moviess %}
+
+    <div class="column">
+        <a href="/moviess/{{movies.id}}">
+        {% if movies.imageUrl %}
+            <img src="{{movies.imageUrl}}">
+        {% else %}
+            <img src="http://placekitten.com/g/128/192">
+        {% endif %}
+        <h4>{{movies.title}}</h4>
+        <p>IMDb: {{movies.rating}}/10</p>
+        <p>{{movies.genre}}</p>
+        </a>
     </div>
-    <div class="media-body">
-      <h4>{{movies.title}}</h4>
-      <p>{{movies.rating}}</p>
-      <p>{{movies.genre}}</p>
-    </div>
-  </a>
-</div>
+
 {% else %}
-<p>No moviess found</p>
+<p>No movies found</p>
 {% endfor %}
-<!--</div>-->
+</div>
 
 {% if last_title %}
 <nav>

@@ -76,6 +76,13 @@ def view(movies_id):
     return render_template('view.html', movies=movies)
 
 
+@app.route('/search_movie', methods=['POST'])
+def search_movie():
+    movie_id = request.form['movie_id']
+    movies = firestore.read(movie_id)
+    return render_template('search_movies.html', movies=movies)
+
+
 @app.route('/moviess/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
