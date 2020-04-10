@@ -38,25 +38,23 @@
 </style>
 
 <br>
+{% if movies.title %}
 <div class="row">
     <div class="column">
+        
         <a href="/moviess/{{movies.id}}">
-        {% if movies.imageUrl %}
             <img src="{{movies.imageUrl}}">
-        {% endif %}
-        {% if movies.title %}
             <h4>{{movies.title}}</h4>
-        {% else %}
-            <h4>Movie does not exist</h4>
-        {% endif %}
-        {% if movies.rating %}
             <p>IMDb: {{movies.rating}}/10</p>
-        {% else %}
-            <p>Please search for a different movie or <a href="/">Go back home</a></p>
-        {% endif %}
-        <p>{{movies.genre}}</p>
+            <p>{{movies.genre}}</p>
         </a>
     </div>
 </div>
+{% else %}
+<p>Sorry we can't find this movie :(</p>
+<p>Please search for a different movie or <a href="/">Go back home</a></p>
+{% endif %}
+        
+    
 
 {% endblock %}

@@ -83,7 +83,7 @@ def view(movies_id):
 @app.route('/search_movie', methods=['POST'])
 def search():
     movie_title = request.form['movie_id']
-    movies = firestore.search_movie(movie_title)
+    movies = firestore.read(movie_title)
     return render_template('search_movies.html', movies=movies)
 
 
@@ -100,7 +100,7 @@ def add():
 
         movies = firestore.create(data)
 
-        return redirect(url_for('.view', movies_id=movies['id']))
+        return redirect(url_for('.view', movies_id=movies['title']))
 
     return render_template('form.html', action='Add', movies={})
 
