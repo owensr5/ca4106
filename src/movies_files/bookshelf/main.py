@@ -78,8 +78,8 @@ def view(movies_id):
 
 @app.route('/search_movie', methods=['POST'])
 def search_movie():
-    movie_id = request.form['movie_id']
-    movies = firestore.read(movie_id)
+    movie_title = request.form['movie_id']
+    movies = firestore.read(movie_title)
     return render_template('search_movies.html', movies=movies)
 
 
