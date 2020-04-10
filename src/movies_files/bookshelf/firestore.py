@@ -25,7 +25,7 @@ def document_to_dict(doc):
     return doc_dict
 
 
-def next_page(limit=10, start_after=None):
+def next_page(limit=12, start_after=None):
     db = firestore.Client()
 
     query = db.collection(u'movies').limit(limit).order_by(u'title')
