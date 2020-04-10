@@ -53,6 +53,14 @@ def read(movies_id):
     return document_to_dict(snapshot)
 
 
+def search_movie(movies_title):
+    # [START moviesshelf_firestore_client]
+    db = firestore.Client()
+    movies_ref = db.collection(u'movies').document(u'Looper')
+    doc = movies_ref.get()
+    return document_to_dict(doc)
+
+
 def update(data, movies_id=None):
     db = firestore.Client()
     movies_ref = db.collection(u'movies').document(movies_id)

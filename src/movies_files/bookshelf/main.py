@@ -70,6 +70,10 @@ def list():
     return render_template('list.html', moviess=moviess, last_title=last_title)
 
 
+def simple_search(index):
+    index.search('comedy')
+
+
 @app.route('/moviess/<movies_id>')
 def view(movies_id):
     movies = firestore.read(movies_id)
@@ -77,9 +81,9 @@ def view(movies_id):
 
 
 @app.route('/search_movie', methods=['POST'])
-def search_movie():
+def search():
     movie_title = request.form['movie_id']
-    movies = firestore.read(movie_title)
+    movies = firestore.search_movie(movie_title)
     return render_template('search_movies.html', movies=movies)
 
 
