@@ -17,6 +17,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    .bold{
+        font-weight: bold;
+    }
+</style>
 
 <h3>{{movies.title}}</h3>
 
@@ -46,10 +51,10 @@
       {{movies.title}}
       <small>{{movies.genre}}</small>
     </h4>
-    <h5 class="movies-author">Directed by {{movies.director|default('Unknown', True)}}</h5>
-    <p class="movies-rating">IMDb Rating: {{movies.rating}}</p>
-    <p class="movies-releasedate">Released Date: {{movies.releaseDate}}</p>
-    <p class="movies-description">Plot: <br> {{movies.description}}</p>
+    <h5>Directed by {{movies.director|default('Unknown', True)}}</h5>
+    <p><span class="bold">IMDb Rating:</span> {{movies.rating}}</p>
+    <p><span class="bold">Released Date:</span> {{movies.releaseDate}}</p>
+    <p><span class="bold">Plot:</span> <br> {{movies.description}}</p>
   </div>
 </div>
 

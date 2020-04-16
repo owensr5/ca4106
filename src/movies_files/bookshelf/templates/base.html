@@ -20,22 +20,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="icon" href="~/github_owensr5_ca4106/src/movies_files/bookshelf/images/favicon.png">
   </head>
   <body>
     <div class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <div class="navbar-brand">Movie List</div>
+          <div class="navbar-brand">Movie Library</div>
         </div>
         <ul class="nav navbar-nav">
           <li><a href="/">Movies</a></li>
         </ul>
+        
       </div>
     </div>
     <div class="container">
         <form action="/search_movie" method="post">
-                Movie ID: <input type="text" name="movie_id"> 
+                Movie: <input type="text" name="movie_id"> 
                 <input type="submit" name= "form" value="Search" />
             </form>
       {% block content %}{% endblock %}

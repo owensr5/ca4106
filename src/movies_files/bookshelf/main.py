@@ -70,10 +70,6 @@ def list():
     return render_template('list.html', moviess=moviess, last_title=last_title)
 
 
-def simple_search(index):
-    index.search('comedy')
-
-
 @app.route('/moviess/<movies_id>')
 def view(movies_id):
     movies = firestore.read(movies_id)
@@ -98,9 +94,9 @@ def add():
         if image_url:
             data['imageUrl'] = image_url
 
-        movies = firestore.create(data)
+        movies = firestore.create(data, data['title'])
 
-        return redirect(url_for('.view', movies_id=movies['title']))
+        return redirect(url_for('.view', movies_id=movies['id']))
 
     return render_template('form.html', action='Add', movies={})
 
