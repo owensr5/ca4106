@@ -25,7 +25,7 @@
     <div class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <div class="navbar-brand">Movie Library</div>
+          <div class="navbar-brand">Home</div>
         </div>
         <ul class="nav navbar-nav">
           <li><a href="/">Movies</a></li>
@@ -35,9 +35,13 @@
     </div>
     <div class="container">
         <form action="/search_movie" method="post">
-                Movie: <input type="text" name="movie_id"> 
+                Search for a Movie title: <input type="text" name="movie_id"> 
                 <input type="submit" name= "form" value="Search" />
             </form>
+        <form action="/filter_genre" method="post">
+            or browse by Genre: <input type="text" name="movie_genre"> 
+            <input type="submit" name= "form" value="Search" />
+        </form>
       {% block content %}{% endblock %}
     </div>
     {{user}}

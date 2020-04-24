@@ -79,8 +79,15 @@ def view(movies_id):
 @app.route('/search_movie', methods=['POST'])
 def search():
     movie_title = request.form['movie_id']
-    movies = firestore.read(movie_title)
-    return render_template('search_movies.html', movies=movies)
+    movies = firestore.search_movie(movie_title)
+    return render_template('search_movies.html', movies=movies, searchterm=movie_title)
+
+
+@app.route('/filter_genre', methods=['POST'])
+def genrefilter():
+    genre = request.form['movie_genre']
+    movies = firestore.filtergenre(genre)
+    return render_template('filter_genre.html', movies=movies, search_genre=genre)
 
 
 @app.route('/moviess/add', methods=['GET', 'POST'])
@@ -94,7 +101,11 @@ def add():
         if image_url:
             data['imageUrl'] = image_url
 
+        string = request.form.get('genre')
+        string_list = string.split(',')
+
         movies = firestore.create(data, data['title'])
+        firestore.update_array(string_list, data['title'])
 
         return redirect(url_for('.view', movies_id=movies['id']))
 

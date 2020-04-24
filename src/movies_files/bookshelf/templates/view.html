@@ -49,7 +49,11 @@
   <div class="media-body">
     <h4 class="movies-title">
       {{movies.title}}
-      <small>{{movies.genre}}</small>
+      <small>
+        {% for g in movies.genre %}
+        {{g}} 
+        {% endfor %}
+        </small>
     </h4>
     <h5>Directed by {{movies.director|default('Unknown', True)}}</h5>
     <p><span class="bold">IMDb Rating:</span> {{movies.rating}}</p>

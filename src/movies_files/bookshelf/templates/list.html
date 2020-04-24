@@ -82,7 +82,11 @@
         {% endif %}
         <h4>{{movies.title}}</h4>
         <p>IMDb: {{movies.rating}}/10</p>
-        <p>{{movies.genre}}</p>
+        <p>
+        {% for g in movies.genre %}
+        {{g}} 
+        {% endfor %}
+        </p>
         </a>
     </div>
 
